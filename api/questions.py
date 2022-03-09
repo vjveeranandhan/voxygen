@@ -15,7 +15,7 @@ qust=Blueprint('qust',__name__)
 # @qust.route('/question_add', methods=['POST'])
 # def question_add():
 #     data=request.get_json() or {}
-#     print(request.form.ge)
+#     print(request.form.ge)e
 #     reference_date_to_question=db.session.query(reference_date).get(data.get('reference_date_id'))
 #     question_set_to_question=db.session.query(question_set).get(data.get('question_set_id'))
 #     if reference_date_to_question and question_set_to_question:
