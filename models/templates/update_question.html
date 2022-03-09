@@ -1,0 +1,28 @@
+<html>
+    <title>
+        Update Questions
+    </title>
+    <body>
+        <form action="{{url_for('qust.update_quest_option')}}" method="post">
+            <table>
+                {% for x in data %}
+                  <label for="cars" style="padding: 10px;" >Enter question :</label>
+                  <input type="text" style="padding: 5px;" name="{{x.id}}" id="" value="{{x.question_text}}">
+                  <br>
+                <br>
+                <label for="cars" style="padding: 10px;" for="Type">Question Type :</label>
+                <select style="padding: 5px;" name="type" id="Type">
+                  <option id="MCQ">MCQ</option>
+                  <option id="Objective">Objective</option>
+                </select>
+                </br>
+                <br>
+                  {% endfor %}
+                  <br>
+                  <input type="submit" style="padding: 5px;" value="submit"></input>
+                  </br>  
+                </table>
+            </table>
+        </form>       
+        </body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Active Questions</title>
+    </head>
+    <style>
+               .myDiv {
+  border: 1px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+  text-align: center;
+  /* width: 400px;
+  height: 400px; */
+}
+.btnstyl {
+    border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <h3 style="text-align: center; color: white;">Active Questions</h3>
+        <form action="{{url_for('qust.activate_deactivate_delete')}}" method="post">
+        {% for x in data %}
+        <div class="myDiv">
+        <p>{{x.question_text}}</p>
+        <!-- <input type="submit" value="Dectivate" name="{{x.id}}" id="" class="btnstyl"></input> -->
+        </div>
+        {% endfor %}
+
+        </form>
+    </body>
+</html>

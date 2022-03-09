@@ -1,0 +1,59 @@
+<html>
+    <title>
+        Add Questions
+    </title>
+    <style>
+                   .myDiv {
+  border: 1px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+  /* text-align: center; */
+  /* width: 400px;
+  height: 400px; */
+}
+.btnstyl {
+    border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);" >
+      
+        <form action="{{url_for('qust.submit_question')}}" method="post">
+          <div class="myDiv" >
+            <h2 style="text-align: center;">Add question</h2>
+                  <label style="padding: 10px;" >Enter question :</label>
+                  <input type="text" style="padding: 5px;" name="question" id="" size="80" required>
+                  <br>
+
+                  <label style="padding: 10px;" >Question type :</label>
+                  
+                  <select style="margin-top: 10px; padding-right: 70px;" name="question_type" required>
+                    <option value="MCQ">MCQ</option>
+                    <option value="Objective">Objective</option>
+                  </select>
+                <br>
+
+                  <label style="padding:10px;">Question status :</label>                   
+                  <select style="margin-top: 10px; padding-right: 70px;" name="status" required>
+                    {% for x in data[0] %}
+                    <option value={{x.id}}>{{x.value}}</option>
+                    {% endfor %}
+                  </select>
+                  <br style="padding: 10px;">
+                  <label style="padding:10px;">Question Type :</label>
+                  <select name="question_set" id="" style="margin-top: 10px; padding-right: 70px;" required>
+                    {% for x in data[1] %}
+                    <option value={{x.id}}>{{x.question_set_title}}</option>
+                    {% endfor %}
+                  </select>
+                  <input style="margin-top: 10px; float: right; margin-bottom: -10px; padding: 6px;" type="submit" value="submit"></input>
+                </div>    
+        </form>     
+        </body>
+</html>

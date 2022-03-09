@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Inactive Question set</title>
+    </head>
+    
+    <style>
+        .myDiv {
+  border: 2px outset black;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 140px;
+  margin-right: 140px;
+}
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <h2 style="text-align: center; color: white; ">Inactive Questions set</h2>
+        <form action="{{url_for('active_qust_set.inactive_question')}}" method="post">
+        
+        {% for x in data %}
+        <div class="myDiv">
+        <p>{{x.question_set_title}}</p>
+        {% if x.reference_date_to_qstn_set == 2 %}
+        <input type="submit" value="Activate" name="{{x.id}}"></input>
+        {% endif %}
+        </div>
+        {% endfor %}
+        
+        </form>
+    </body>
+</html>

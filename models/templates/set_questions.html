@@ -1,0 +1,18 @@
+<html>
+    <header>
+        <title>
+
+        </title>
+    </header>
+    <body>
+        <div>
+            <form action="" method="get">
+            {% for x in data %}
+            <div class="myDiv" >
+            <h3 type="submit"><a href="http://127.0.0.1:5000/question_attempt/{{x.id}}">{{x.question_text}}</a></h3>
+            </div>
+            {% endfor %}
+            </form>
+        </div>
+    </body>
+</html>

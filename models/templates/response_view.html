@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Responses</title>
+    </head>
+    
+    <style>
+.myDiv {
+  border: 2px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 300px;
+  margin-right: 300px;
+        }
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <h3 style="text-align: center; color: white;">Response Data</h3>
+        <form action="">
+            <div class="myDiv">
+            {% for item in data %}
+            <br>
+                <!-- <h3>{{item}}</h3> -->
+                <!-- <h3>{{count}}</h3> -->
+            <h3> Question : {{item.question}}</h3>
+            <h4>Response : {{item.response_text}}</h4>
+            
+            {% endfor %}
+        </div>
+        </form>
+    </body>
+</html>

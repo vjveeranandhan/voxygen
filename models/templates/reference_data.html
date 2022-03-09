@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Reference data</title>
+    </head>
+
+    <body>
+        
+        <table>
+            <td>
+        {% for x in data %}
+        <p>{{x.code}}</p> <p>{{x.value}}</p>
+        {% endfor %}
+    </td>
+    </table>
+    </body>
+</html>

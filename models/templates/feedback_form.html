@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Feedback Form</title>
+    </head>
+    <style>
+        .myDiv {
+  border: 2px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 11px;
+  margin-bottom: 15px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+    </style>
+    <h3 style="text-align: center;">Feedback Form</h3>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        
+    <form action="{{url_for('qust.submit')}}" method="post">
+        <div class="myDiv">
+        {% for x in data %}
+        
+        <p>{{x.question.question_text}}</p>
+        {% if x.question.question_type == 'MCQ' %}
+        {% for i in x.option %}
+        <input type="radio" name="{{x.question.id}},{{i.id}},{{x.question.question_type}}" value="{{i.question_options}}">
+        <label >{{i.question_options}}</label><br>
+        {% endfor %}
+        {% endif %}
+        {% if x.question.question_type == 'Objective' %}
+        <input type="text" name={{x.question.id}},{{x.question.question_type}} required>
+        {% endif %}
+        {% endfor %}
+
+            <br>
+            <br>
+            <div style="text-align: center;">
+            <input type="submit" value="submit"></input>
+        </div>
+    </div>
+    
+    </form>
+</body>
+</html>

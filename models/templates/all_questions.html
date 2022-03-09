@@ -1,0 +1,45 @@
+<html>
+    <head style="color: white;">
+        <title style="color: white;">All Questions</title>
+    </head>
+    <style>
+        .myDiv {
+  border: 1px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+  text-align: center;
+  /* width: 400px;
+  height: 400px; */
+}
+.btnstyl {
+    border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+    </style>
+    <body style="margin-left: 30px; margin-top: 30px; background: linear-gradient(120deg,#2980b9, #8e44ad);" >
+        <h2 style="text-align: center; color: white;">All Questions</h2>
+        <form action="{{url_for('qust.activate_deactivate_delete')}}" method="post">
+        {% for x in data %}
+        <div class="myDiv" >
+        <p>{{x.question_text}}</p>
+        {% if x.reference_date_id == 2 %}
+        <br>
+        <input type="submit" value="Activate" name="{{x.id}}" id="" class="btnstyl"></input>
+        {% endif %}
+        {% if x.reference_date_id == 4 %}
+        <br>
+        <input type="submit" value="Deactivate" name="{{x.id}}" id="" class="btnstyl"></input>
+        {% endif %}
+        <input type="submit" value="Edit" name="{{x.id}}" id="" class="btnstyl"></input>
+        <input type="submit" value="Delete" name="{{x.id}}" id="" class="btnstyl"></input>
+        </div>
+        {% endfor %}
+        </form>
+    </body>
+</html>

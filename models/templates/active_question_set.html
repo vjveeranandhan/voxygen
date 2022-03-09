@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Active Question set</title>
+    </head>
+    <style>
+        .myDiv {
+  border: 2px outset black;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  /* margin: auto; */
+  /* width: 60%; */
+  margin-left: 140px;
+  margin-right: 140px;
+}
+    </style>
+    <h3 style="text-align: center; color: white;">Active Questions set</h3>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <div>
+        <form action="{{url_for('active_qust_set.active_question')}}" method="post">
+        {% for x in data %}
+        <div class="myDiv">
+        <p>{{x.question_set_title}}</p>
+        {% if x.reference_date_to_qstn_set == 4 %}
+        <input type="submit" value="Deactivate" name="{{x.id}}"></input>
+        {% endif %}
+        </div>
+        {% endfor %}
+        </form>
+    </div>
+   </body>
+</html>

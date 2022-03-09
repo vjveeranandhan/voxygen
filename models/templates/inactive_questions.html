@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Inactive Questions</title>
+    </head>
+    <style>
+               .myDiv {
+  border: 1px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+  text-align: center;
+  /* width: 400px;
+  height: 400px; */
+}
+.btnstyl {
+    border-radius: 6px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <form action="{{url_for('qust.activate_deactivate_delete')}}">
+        <h2 style="text-align: center; color: white;">Inactive Questions</h2>
+        {% for x in data %}
+        <div class="myDiv">
+        <p>{{x.question_text}}</p>
+        {% if x.reference_date_id == 2 %}
+        <!-- <input type="submit" value="Activate" name="{{x.id}}" id="" class="btnstyl"></input> -->
+        {% endif %}
+        </div>
+        {% endfor %}
+    </form>
+    </body>
+</html>

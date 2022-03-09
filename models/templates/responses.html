@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Responses</title>
+    </head>
+    
+    <style>
+.myDiv {
+  border: 2px outset black;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: 300px;
+  margin-right: 300px;
+        }
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <h3 style="text-align: center; color: white;">Response Dates</h3>
+        <form action="">
+            {% for item in data %}
+            <div class="myDiv">
+            <h3><a style="text-decoration: none; color: black;" href="http://127.0.0.1:5000/question_attempt/{{item}}">{{item}}</a></h3>
+            </div>
+            {% endfor %}
+        </form>
+    </body>
+</html>

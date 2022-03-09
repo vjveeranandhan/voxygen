@@ -1,0 +1,40 @@
+<html>
+    <header>
+        <title>Add question set</title>
+    </header>
+    <style>
+            .myDiv {
+  border: 2px outset black;
+  background-color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-right: 200px;
+  margin-left: 200px;
+  /* align-items: center; */
+}
+    </style>
+    <body style="background: linear-gradient(120deg,#2980b9, #8e44ad);">
+        <h2 style="text-align: center; color: white;">Add question set</h2>
+        <form action="{{url_for('qust_set.submit_question_set')}}" method="post">
+            <div class="myDiv" >
+            <label style="padding: 10px; margin-top: 10px;" >Enter question set :</label>
+            <input type="text" style="padding: 5px; margin-top: 10px;" name="question_set" id="" size="80" required>
+            <br>
+            <label style="padding: 10px; margin-top: 10px;" >Effective date :</label>
+            <input type="datetime-local" style="padding: 5px; margin-top: 10px;" required name="effective_date" id="" size="80">
+            <br>
+            <label style="padding: 10px; margin-top: 10px;" >Expiry date :</label>
+            <input type="datetime-local" style="padding: 5px; margin-top: 10px;" required name="expiry_date" id="" size="80">
+            <br>
+            <label style="padding: 10px; margin-top: 10px;" >Status :</label>
+            <select name="refence_data" id="" style="margin-top: 10px; padding-right: 70px;" required>
+                {% for x in data %}
+                <option value={{x.id}}>{{x.value}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" style="margin-top: 10px; float: right; margin-bottom: -10px; padding: 6px;" value="submit"></input>
+            </div>       
+        </form>
+    </body>
+</html>
